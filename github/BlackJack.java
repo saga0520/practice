@@ -1,3 +1,5 @@
+package practice;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,72 +7,108 @@ import java.util.ArrayList;
 
 public class BlackJack {
 	public static void main(String args[]) throws IOException{
-		//Å‰‚Ì2–‡‚ÌƒJ[ƒh‚ğramdomƒƒ\ƒbƒh‚Å¶¬
-		int f = (int)(Math.random()*10)+1;
-		int b = (int)(Math.random()*10)+1;
-		//ƒJ[ƒh‚Ì‡Œv
-		int total = f + b ;
-		//Å‰‚Ìè‚ğo—Í‚·‚é
-		System.out.println("1–‡–Ú‚ÌƒJ[ƒh : " + f);
-		System.out.println("2–‡–Ú‚ÌƒJ[ƒh : "  + b);
-		System.out.println("‚ ‚È‚½‚Ìè : "+ total);
-		//’Ç‰Á‚Åó‚¯æ‚éƒJ[ƒh‚ğŠi”[‚·‚é‚½‚ß‚ÉArrayList‚ğ—pˆÓ‚·‚é
+		/**
+		 *	æœ€åˆã®2æšã®ã‚«ãƒ¼ãƒ‰ã‚’ramdomãƒ¡ã‚½ãƒƒãƒ‰ã§ç”Ÿæˆ
+		 */
+		int card_1 = (int)(Math.random()*10)+1;
+		int card_2 = (int)(Math.random()*10)+1;
+		/**
+		 *	ã‚«ãƒ¼ãƒ‰ã®åˆè¨ˆ
+		 */
+		int total = card_1 + card_2 ;
+		/**
+		 *	æœ€åˆã®æ‰‹ã‚’å‡ºåŠ›ã™ã‚‹
+		 */
+		System.out.println("1æšç›®ã®ã‚«ãƒ¼ãƒ‰ : " + card_1);
+		System.out.println("2æšç›®ã®ã‚«ãƒ¼ãƒ‰ : "  + card_2);
+		System.out.println("ã‚ãªãŸã®æ‰‹ : "+ total);
+		/**
+		 *	è¿½åŠ ã§å—ã‘å–ã‚‹ã‚«ãƒ¼ãƒ‰ã‚’æ ¼ç´ã™ã‚‹ãŸã‚ã«ArrayListã‚’ç”¨æ„ã™ã‚‹
+		 */
 		ArrayList<Integer> array = new ArrayList<Integer>();
 
-		//’Ç‰Á‚Åó‚¯æ‚éƒJ[ƒh‚Ì§ŒÀ‰ñ”‚È‚µ‚Æ‘z’è‚·‚é
+		/**
+		 *	è¿½åŠ ã§å—ã‘å–ã‚‹ã‚«ãƒ¼ãƒ‰ã®åˆ¶é™å›æ•°ãªã—ã¨æƒ³å®šã™ã‚‹
+		 */
 		for(int i = 0 ; ; i++) {
-			//’Ç‰Á‚Åó‚¯æ‚Á‚½ƒJ[ƒh‚ğramdomƒƒ\ƒbƒh‚Å¶¬
-			int card  = (int)(Math.random()*10)+1;
-			//addƒƒ\ƒbƒh‚Å’Ç‰Á‚Åó‚¯æ‚Á‚½ƒJ[ƒh‚ğArrayList‚ÉŠi”[‚·‚é
-			array.add(card);
-			//’Ç‰Á‚Åó‚¯æ‚Á‚½ƒJ[ƒh‚ğgetƒƒ\ƒbƒh‚ÅArrayList‚©‚çæ‚èo‚µ‚Ä‡Œv“_”‚É‘«‚·
+			/**
+			 *	è¿½åŠ ã§å—ã‘å–ã£ãŸã‚«ãƒ¼ãƒ‰ã‚’ramdomãƒ¡ã‚½ãƒƒãƒ‰ã§ç”Ÿæˆ
+			 */
+			int card_add  = (int)(Math.random()*10)+1;
+			/**
+			 *	addãƒ¡ã‚½ãƒƒãƒ‰ã§è¿½åŠ ã§å—ã‘å–ã£ãŸã‚«ãƒ¼ãƒ‰ã‚’ArrayListã«æ ¼ç´ã™ã‚‹
+			 */
+			array.add(card_add);
+			/**
+			 *	è¿½åŠ ã§å—ã‘å–ã£ãŸã‚«ãƒ¼ãƒ‰ã‚’getãƒ¡ã‚½ãƒƒãƒ‰ã§ArrayListã‹ã‚‰å–ã‚Šå‡ºã—ã¦åˆè¨ˆç‚¹æ•°ã«è¶³ã™
+			 */
 			total = total + array.get(i);
-			System.out.println("X‚ÉƒJ[ƒh‚ğó‚¯æ‚è‚Ü‚·‚©H");
-			System.out.println("HIT or STAND ‚ğ“ü—Í‚µ‚ÄEnter ");
-			//ƒJ[ƒh‚ğó‚¯æ‚é‚©‚Ì”»’f‚ğ‚·‚éƒƒbƒh‚ğŒÄ‚Ño‚µA”»’è‚ğó‚¯æ‚é
+			System.out.println("æ›´ã«ã‚«ãƒ¼ãƒ‰ã‚’å—ã‘å–ã‚Šã¾ã™ã‹ï¼Ÿ");
+			System.out.println("HIT or STAND ã‚’å…¥åŠ›ã—ã¦Enter ");
+			/**
+			 *	ã‚«ãƒ¼ãƒ‰ã‚’å—ã‘å–ã‚‹ã‹ã®åˆ¤æ–­ã‚’ã™ã‚‹ãƒ¡ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã€åˆ¤å®šã‚’å—ã‘å–ã‚‹
+			 */
 			String judge = getScore();
 
-			//HIT‚ğ‘I‘ğ‚µAƒJ[ƒh‚ğó‚¯æ‚Á‚½ê‡‚ÌƒRƒƒ“ƒg‚ğo—Í
+			/**
+			 *	HITã‚’é¸æŠã—ã€ã‚«ãƒ¼ãƒ‰ã‚’å—ã‘å–ã£ãŸå ´åˆã®ã‚³ãƒ¡ãƒ³ãƒˆã‚’å‡ºåŠ›
+			 */
 			if (judge.equals("HIT")) {
 				System.out.println("HIT!!" + "\n");
-				System.out.println("‚à‚¤1–‡ƒJ[ƒh‚ğó‚¯æ‚è‚Ü‚·");
-				System.out.println(i + 3 + "–‡–Ú‚ÌƒJ[ƒh : " + card);
-				//‡Œv“_”‚ğo—Í‚·‚é
-				System.out.println("‚ ‚È‚½‚Ì‡Œv“_” : " + total );
-				//‡Œv“_”•Ê‚ÌƒRƒƒ“ƒg—pƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
+				System.out.println("ã‚‚ã†1æšã‚«ãƒ¼ãƒ‰ã‚’å—ã‘å–ã‚Šã¾ã™");
+				System.out.println(i + 3 + "æšç›®ã®ã‚«ãƒ¼ãƒ‰ : " + card_add);
+				/**
+				 *	åˆè¨ˆç‚¹æ•°ã‚’å‡ºåŠ›ã™ã‚‹
+				 */
+				System.out.println("ã‚ãªãŸã®åˆè¨ˆç‚¹æ•° : " + total );
+				/**
+				 *	åˆè¨ˆç‚¹æ•°åˆ¥ã®ã‚³ãƒ¡ãƒ³ãƒˆç”¨ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
+				 */
 				String result = BlackJack.getTotal(total);
 				System.out.println(result);
-					//‡Œv“_”‚ª21ˆÈã‚È‚çI—¹‚·‚é
+					/**
+					 *	åˆè¨ˆç‚¹æ•°ãŒ21ä»¥ä¸Šãªã‚‰çµ‚äº†ã™ã‚‹
+					 */
 					if (total >= 21) {
 						break;
 					}
-			//STAND‚ğ‘I‘ğ‚µAƒJ[ƒh‚ğó‚¯æ‚ç‚È‚©‚Á‚½ê‡‚Ì‡Œv“_”‚ğo—Í
+			/**
+			 *	STANDã‚’é¸æŠã—ã€ã‚«ãƒ¼ãƒ‰ã‚’å—ã‘å–ã‚‰ãªã‹ã£ãŸå ´åˆã®åˆè¨ˆç‚¹æ•°ã‚’å‡ºåŠ›
+			 */
 			} else if(judge.equals("STAND")){
 				System.out.println("STAND!!");
-				System.out.println("‚ ‚È‚½‚Ì‡Œv“_” : " + (total - card));
-				//‡Œv“_”•Ê‚ÌƒRƒƒ“ƒg—pƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
-				String result = BlackJack.getTotal(total - card);
+				System.out.println("ã‚ãªãŸã®åˆè¨ˆç‚¹æ•° : " + (total - card_add));
+				/**
+				 *	åˆè¨ˆç‚¹æ•°åˆ¥ã®ã‚³ãƒ¡ãƒ³ãƒˆç”¨ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
+				 */
+				String result = BlackJack.getTotal(total - card_add);
 				System.out.println(result);
 				break;
 			} else {
-				System.out.println("•s³sˆ×‚Í‹Ö~‚³‚ê‚Ä‚¢‚Ü‚·");
+				System.out.println("ä¸æ­£è¡Œç‚ºã¯ç¦æ­¢ã•ã‚Œã¦ã„ã¾ã™");
 				break;
 			}
 		}
 	}
 
-	/*ƒJ[ƒh‚ğó‚¯æ‚é‚©‚ğ”»’f‚·‚éƒƒ\ƒbƒh
-	ƒRƒ“ƒ\[ƒ‹‰æ–Ê‚ÅHIT‚©STAND‚ğ“ü—Í‚µA“ü—Í‚µ‚½’l‚ğ•Ô‚·*/
+	/**
+	 *	ã‚«ãƒ¼ãƒ‰ã‚’å—ã‘å–ã‚‹ã‹ã‚’åˆ¤æ–­ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
+	 *	ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ç”»é¢ã§HITã‹STANDã‚’å…¥åŠ›ã—ã€å…¥åŠ›ã—ãŸå€¤ã‚’è¿”ã™
+	 */
 	public static String getScore() throws IOException {
 		String jg;
-		//ƒRƒ“ƒ\[ƒ‹‰æ–Ê‚É“ü—Í‚³‚ê‚½•¶š‚ğæ“¾‚·‚é
+		/**
+		 *	ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ç”»é¢ã«å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—ã‚’å–å¾—ã™ã‚‹
+		 */
 		BufferedReader br =
 			new BufferedReader(new InputStreamReader(System.in));
 				jg = br.readLine();
 	return jg;
 	}
 
-	//‡Œv“_”‚É‚æ‚Á‚Äo—Í‚·‚éƒRƒƒ“ƒg‚ğ”»’è‚·‚é
+	/**
+	 *	åˆè¨ˆç‚¹æ•°ã«ã‚ˆã£ã¦å‡ºåŠ›ã™ã‚‹ã‚³ãƒ¡ãƒ³ãƒˆã‚’åˆ¤å®šã™ã‚‹
+	 */
 	public static String getTotal(int subtotal) {
 		String result;
 		if (subtotal == 21) {
