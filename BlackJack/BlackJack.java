@@ -94,7 +94,7 @@ public class BlackJack {
 	/**
 	 *	コンソール画面で入力された値を返すメソッド
 	 */
-	public static String getScore() throws IOException {
+	public static String getCoice() throws IOException {
 		String inputChar;
 		/**
 		 *	BufferedReaderオブジェクトを生成し、コンソール画面から一行読み込む
