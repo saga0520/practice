@@ -46,9 +46,9 @@ public class BlackJack {
 			System.out.println("更にカードを受け取りますか？");
 			System.out.println("HIT or STAND を入力してEnter ");
 			/**
-			 *	カードを受け取るかの判断をするメッドを呼び出し、判定を受け取る
+			 *	コンソール画面で入力された値をreturnするメソッド
 			 */
-			String judge = getScore();
+			String judge = getCoice();
 
 			/**
 			 *	HITを選択し、カードを受け取った場合のコメントを出力
@@ -102,7 +102,7 @@ public class BlackJack {
 		BufferedReader br =
 			new BufferedReader(new InputStreamReader(System.in));
 				inputChar = br.readLine();
-	return inputChar;
+				return inputChar;
 	}
 
 	/**
