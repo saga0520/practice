@@ -39,25 +39,21 @@ public class RegistServlet extends HttpServlet {
 			bytes = MessageDigest.getInstance(algorithm).digest(password.getBytes(charset));
 	        String result2 = DatatypeConverter.printHexBinary(bytes);
 
+			UserDAO dao = new UserDAO();
 
-		UserDAO dao = new UserDAO();
+			int result = dao.regUser(id, result2);
 
-		int result = dao.regUser(id, result2);
-
-
-        //入力値チェック
-		if(id != null && id.length() != 0) {
-	        request.setAttribute("username", id);
-	        request.getRequestDispatcher("/jsp/registconfirm.jsp").forward(request, response);
-
-		} else {
-			//リダイレクト
-			response.sendRedirect("./jsp/registerror.jsp");
-		}
+        	//入力値チェック
+			if(id != null && id.length() != 0) {
+	        	request.setAttribute("username", id);
+	        	request.getRequestDispatcher("/jsp/registconfirm.jsp").forward(request, response);
+			} else {
+				//リダイレクト
+				response.sendRedirect("./jsp/registerror.jsp");
+			}
 		} catch (NoSuchAlgorithmException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-
 	}
 }

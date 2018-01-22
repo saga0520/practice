@@ -16,9 +16,6 @@ public class Login {
 		this.id = id;
 		this.password = password;
 
-
-
-
         Charset charset = StandardCharsets.UTF_8;
         //ハッシュアルゴリズム
         String algorithm = "SHA-256";
@@ -36,8 +33,6 @@ public class Login {
 
 	}
 
-
-
 	public String getid() {
 
 		return id;
@@ -46,6 +41,4 @@ public class Login {
 
 		return password;
 	}
-
-
 }

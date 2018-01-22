@@ -9,8 +9,6 @@ import java.sql.SQLException;
 public class UserDAO {
 
 	private static Connection getConnection() {
-
-
 		//使用するドライバークラスを読み込む
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
