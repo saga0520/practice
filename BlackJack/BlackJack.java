@@ -48,7 +48,7 @@ public class BlackJack {
 			/**
 			 *	コンソール画面で入力された値をreturnするメソッド
 			 */
-			String judge = getCoice();
+			String judge = getChoice();
 
 			/**
 			 *	HITを選択し、カードを受け取った場合のコメントを出力
@@ -94,7 +94,7 @@ public class BlackJack {
 	/**
 	 *	コンソール画面で入力された値を返すメソッド
 	 */
-	public static String getCoice() throws IOException {
+	public static String getChoice() throws IOException {
 		String inputChar;
 		/**
 		 *	BufferedReaderオブジェクトを生成し、コンソール画面から一行読み込む
