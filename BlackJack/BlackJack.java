@@ -48,12 +48,12 @@ public class BlackJack {
 			/**
 			 *	コンソール画面で入力された値をreturnするメソッド
 			 */
-			String judge = getChoice();
+			String resultCommentVal = getValue();
 
 			/**
 			 *	HITを選択し、カードを受け取った場合のコメントを出力
 			 */
-			if (judge.equals("HIT")) {
+			if (resultCommentVal.equals("HIT")) {
 				System.out.println("HIT!!" + "\n");
 				System.out.println("もう1枚カードを受け取ります");
 				System.out.println(i + 3 + "枚目のカード : " + addCard);
@@ -64,8 +64,8 @@ public class BlackJack {
 				/**
 				 *	合計点数別のコメント用メソッドを呼び出す
 				 */
-				String result = BlackJack.getTotal(total);
-				System.out.println(result);
+				String resultComment = BlackJack.getTotal(total);
+				System.out.println(resultComment);
 					/**
 					 *	合計点数が21以上なら終了する
 					 */
@@ -75,14 +75,14 @@ public class BlackJack {
 			/**
 			 *	STANDを選択し、カードを受け取らなかった場合の合計点数を出力
 			 */
-			} else if(judge.equals("STAND")){
+			} else if(resultCommentVal.equals("STAND")){
 				System.out.println("STAND!!");
 				System.out.println("あなたの合計点数 : " + (total - addCard));
 				/**
 				 *	合計点数別のコメント用メソッドを呼び出す
 				 */
-				String result = BlackJack.getTotal(total - addCard);
-				System.out.println(result);
+				String resultComment = BlackJack.getTotal(total - addCard);
+				System.out.println(resultComment);
 				break;
 			} else {
 				System.out.println("不正行為は禁止されています");
@@ -94,31 +94,31 @@ public class BlackJack {
 	/**
 	 *	コンソール画面で入力された値を返すメソッド
 	 */
-	public static String getChoice() throws IOException {
-		String inputChar;
+	public static String getValue() throws IOException {
+		String val;
 		/**
 		 *	BufferedReaderオブジェクトを生成し、コンソール画面から一行読み込む
 		 */
 		BufferedReader br =
 			new BufferedReader(new InputStreamReader(System.in));
-				inputChar = br.readLine();
-				return inputChar;
+				val = br.readLine();
+				return val;
 	}
 
 	/**
 	 *	合計点数によって出力するコメントを判定するメソッド
 	 */
 	public static String getTotal(int subtotal) {
-		String result;
+		String comment;
 		if (subtotal == 21) {
-			result = "BlackJack!!";
+			comment = "BlackJack!!";
 		} else if (subtotal > 21) {
-			result = "Pig!!";
+			comment = "Pig!!";
 		} else if ((subtotal >= 16)&&(subtotal <= 20)) {
-			result = "STAND!!";
+			comment = "STAND!!";
 		} else {
-			result = "HIT!!";
+			comment = "HIT!!";
 		}
-		return result;
+		return comment;
 	}
 }
