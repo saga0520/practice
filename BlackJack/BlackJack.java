@@ -48,12 +48,12 @@ public class BlackJack {
 			/**
 			 *	コンソール画面で入力された値をreturnするメソッド
 			 */
-			String resultCommentVal = getValue();
+			String resultConsolVal = getConsolVal();
 
 			/**
 			 *	HITを選択し、カードを受け取った場合のコメントを出力
 			 */
-			if (resultCommentVal.equals("HIT")) {
+			if (resultConsolVal.equals("HIT")) {
 				System.out.println("HIT!!" + "\n");
 				System.out.println("もう1枚カードを受け取ります");
 				System.out.println(i + 3 + "枚目のカード : " + addCard);
@@ -75,7 +75,7 @@ public class BlackJack {
 			/**
 			 *	STANDを選択し、カードを受け取らなかった場合の合計点数を出力
 			 */
-			} else if(resultCommentVal.equals("STAND")){
+			} else if(resultConsolVal.equals("STAND")){
 				System.out.println("STAND!!");
 				System.out.println("あなたの合計点数 : " + (total - addCard));
 				/**
@@ -94,7 +94,7 @@ public class BlackJack {
 	/**
 	 *	コンソール画面で入力された値を返すメソッド
 	 */
-	public static String getValue() throws IOException {
+	public static String getConsolVal() throws IOException {
 		String val;
 		/**
 		 *	BufferedReaderオブジェクトを生成し、コンソール画面から一行読み込む
