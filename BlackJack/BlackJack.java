@@ -97,12 +97,14 @@ public class BlackJack {
 	public static String getConsolVal() throws IOException {
 		String val;
 		/**
-		 *	BufferedReaderオブジェクトを生成し、コンソール画面から一行読み込む
+		 *	コンソールから入力されたデータを読み込む
 		 */
-		BufferedReader br =
-			new BufferedReader(new InputStreamReader(System.in));
-				val = br.readLine();
-				return val;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		/**
+		 *	readLine()メソッドで読み込んだデータを日本語変換する
+		 */
+		val = br.readLine();
+		return val;
 	}
 
 	/**
