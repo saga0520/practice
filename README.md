@@ -18,10 +18,8 @@
 4. 数字の合計が 16 以上であれば "STAND!!"  
 ## Demo
 ![blackjack](https://user-images.githubusercontent.com/25055251/36338630-04105af0-13f8-11e8-9021-85a0accc6049.gif)
-
-
-
-
+## Javadoc
+ https://saga0520.github.io/sample/.
 ## Author
 
 [saga](https://github.com/saga0520)
