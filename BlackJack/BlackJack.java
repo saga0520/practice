@@ -5,85 +5,56 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+* ブラックジャックをプレイするクラス
+* @author saga
+* @version 1.0
+*/
 public class BlackJack {
 	public static void main(String args[]) throws IOException{
-		/**
-		 *	最初の2枚のカードをramdomメソッドで生成
-		 */
+		// 初めに配布カードを2枚用意
 		int myCard_1 = (int)(Math.random()*10)+1;
 		int myCard_2 = (int)(Math.random()*10)+1;
-		/**
-		 *	カードの合計
-		 */
 		int total = myCard_1 + myCard_2 ;
-		/**
-		 *	最初の手を出力する
-		 */
+		// 配布した2枚のカードと合計を表示
 		System.out.println("1枚目のカード : " + myCard_1);
 		System.out.println("2枚目のカード : "  + myCard_2);
 		System.out.println("あなたの手 : "+ total);
-		/**
-		 *	追加で受け取るカードを格納するためにArrayListを用意する
-		 */
 		ArrayList<Integer> array = new ArrayList<Integer>();
 
-		/**
-		 *	追加で受け取るカードの制限回数なしと想定する
-		 */
 		for(int i = 0 ; ; i++) {
-			/**
-			 *	追加で受け取ったカードをramdomメソッドで生成
-			 */
+			//追加の配布カードを用意
 			int addCard  = (int)(Math.random()*10)+1;
-			/**
-			 *	addメソッドで追加で受け取ったカードをArrayListに格納する
-			 */
+			//配布したカードを配列にセット
 			array.add(addCard);
-			/**
-			 *	追加で受け取ったカードをgetメソッドでArrayListから取り出して合計点数に足す
-			 */
+			//配布カードを足した合計をセット
 			total = total + array.get(i);
 			System.out.println("更にカードを受け取りますか？");
 			System.out.println("HIT or STAND を入力してEnter ");
-			/**
-			 *	コンソール画面で入力された値をreturnするメソッド
-			 */
+			//コンソール画面に入力した文字列
 			String resultConsolVal = getConsolVal();
-
-			/**
-			 *	HITを選択し、カードを受け取った場合のコメントを出力
-			 */
+			// HITを入力し、配布カードを受け取った場合
 			if (resultConsolVal.equals("HIT")) {
 				System.out.println("HIT!!" + "\n");
 				System.out.println("もう1枚カードを受け取ります");
 				System.out.println(i + 3 + "枚目のカード : " + addCard);
-				/**
-				 *	合計点数を出力する
-				 */
 				System.out.println("あなたの合計点数 : " + total );
-				/**
-				 *	合計点数別のコメント用メソッドを呼び出す
-				 */
+				//合計点数の判定結果
 				String resultComment = BlackJack.getTotal(total);
 				System.out.println(resultComment);
-					/**
-					 *	合計点数が21以上なら終了する
-					 */
+					//合計点数が21以上なら終了する
 					if (total >= 21) {
 						break;
 					}
-			/**
-			 *	STANDを選択し、カードを受け取らなかった場合の合計点数を出力
-			 */
+			//STANDを入力し、配布カードを受け取らない場合
 			} else if(resultConsolVal.equals("STAND")){
 				System.out.println("STAND!!");
 				System.out.println("あなたの合計点数 : " + (total - addCard));
-				/**
-				 *	合計点数別のコメント用メソッドを呼び出す
-				 */
+				//合計点数の判定結果
 				String resultComment = BlackJack.getTotal(total - addCard);
 				System.out.println(resultComment);
 				break;
+			//HIT、STAND以外を入力した場合
 			} else {
 				System.out.println("不正行為は禁止されています");
 				break;
@@ -92,20 +63,23 @@ public class BlackJack {
 	}
 
 	/**
-	 *	コンソール画面で入力された値を返すメソッド
+	 * コンソール画面に入力した文字列を返すメソッド
+	 *
+	 * @return コンソール画面に入力した文字列を返します
+	 * @throws IOException 入力エラーがあった場合の例外
 	 */
 	public static String getConsolVal() throws IOException {
 		String val;
-		/**
-		 *	コンソール画面の入力文字を読み込み、valに代入する
-		 */
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		val = br.readLine();
 		return val;
 	}
 
 	/**
-	 *	合計点数によって出力するコメントを判定するメソッド
+	 * 合計点数を判定し、結果を表示するメソッド
+	 *
+	 * @param subtotal 合計点数
+	 * @return 判定結果を返します
 	 */
 	public static String getTotal(int subtotal) {
 		String comment;
